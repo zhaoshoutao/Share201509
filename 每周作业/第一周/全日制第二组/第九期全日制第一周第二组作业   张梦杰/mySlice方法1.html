@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+
+    Array.prototype.mySlice=function mySlice(){
+        for(var j=0;j<arguments.length;j++) {
+            if (arguments[j] < 0) {
+                Math.abs(arguments[j]) <= this.length ? arguments[j] = (this.length + Math.ceil(arguments[j])) : arguments[j] = 0;
+            }
+
+            else {
+                arguments[j] <= this.length ? arguments[j] = Math.floor(arguments[j]): arguments[j] = this.length ;}
+            }
+        var arr=[];
+        switch(arguments.length) {
+         case 0:
+             return arr = this.concat();
+             break;
+         case 1:
+             for (var i = arguments[0]; i < this.length; i++) {
+                 arr.push(this[i]);
+             }
+             return arr;
+             break;
+         default :
+             for (var k = arguments[0]; k < arguments[1]; k++) {
+                 arr.push(this[k]);
+             }
+             return arr;
+        }
+    };
+    arr=null;
+    var ary=[1,2,3,4,5];
+    ary.mySlice();
+</script>
+</body>
+</html>

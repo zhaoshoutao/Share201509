@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    var num=5;
+    Number.prototype.myPlus=function myPlus(num){
+
+     return this+num;
+
+
+    };
+    Number.prototype.myMinus=function myMinus(num){
+
+        return this-num;
+    };
+
+ var num1= num.myPlus(3).myMinus(2);
+    alert(num1);
+</script>
+</body>
+</html>
