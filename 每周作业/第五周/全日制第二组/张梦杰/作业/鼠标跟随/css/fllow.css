@@ -1,0 +1,44 @@
+
+body, div, img {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    border: none;
+}
+
+.box {
+    position: relative;
+    margin: 20px auto;
+    width: 450px;
+}
+
+.box img {
+    float: left;
+    margin-left: 10px;
+    width: 100px;
+    height: 75px;
+    z-index: 999;
+    border: 1px solid #e8e8e8;
+}
+
+#mark {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 400px;
+    height: 300px;
+    border: 1px solid #e9eaeb;
+}
+
+#mark img {
+    float: inherit;
+    margin-left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}

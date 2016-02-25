@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/fllow.css"/>
+</head>
+<body>
+<div class="box" id="box">
+    <img src="img/apple_1.jpg" bigImg="img/apple_1_bigger.jpg"/>
+    <img src="img/apple_2.jpg" bigImg="img/apple_2_bigger.jpg"/>
+    <img src="img/apple_3.jpg" bigImg="img/apple_3_bigger.jpg"/>
+    <img src="img/apple_4.jpg" bigImg="img/apple_4_bigger.jpg"/>
+
+    <div id="mark">
+        <img src="img/apple_1_bigger.jpg"/>
+    </div>
+</div>
+<script type="text/javascript">
+    var box=document.getElementById("box"),
+            imgList=box.getElementsByTagName("img");
+    var offL=box.offsetLeft;
+    var offT=box.offsetTop;
+    var mark = document.getElementById("mark"),
+            oImg=mark.getElementsByTagName("img");
+    for(var i=0;i<imgList.length;i++){
+        var cur=imgList[i];
+        cur.index=i;
+        cur.onmouseenter = function (e) {
+            e = e || window.event;
+            mark.style.left = e.clientX - offL + 5 + "px";
+            mark.style.top = e.clientY - offT + 5 + "px";
+
+            var oImg1=new Image;
+            oImg1.src=imgList[this.index].getAttribute("bigImg");
+
+            oImg1.onload=function(){
+                oImg[0].src=this.src;
+                mark.style.display="block";
+            }
+        };
+
+        cur.onmousemove = function (e) {
+            e = e || window.event;
+
+            mark.style.left = e.clientX - offL + 5 + "px";
+            mark.style.top = e.clientY - offT + 5 + "px";
+        };
+
+        cur.onmouseleave = function () {
+            mark.style.display="none";
+        };
+    }
+
+</script>
+</body>
+</html>

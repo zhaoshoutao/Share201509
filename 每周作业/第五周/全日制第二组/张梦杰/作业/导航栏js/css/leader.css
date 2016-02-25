@@ -1,0 +1,128 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+}
+ul,li{
+    list-style: none;
+}
+img{
+    border: none;
+    display: block;
+}
+a, a:active,a:target,a:hover{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0);
+}
+.outer{
+    position: relative;
+    margin: 40px auto;
+    height: 460px;
+    width: 1230px;
+    overflow: hidden;
+}
+.inner{
+   position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 460px;
+    width: 7380px;
+
+}
+.outer .inner div{
+    height: 460px;
+    width: 1230px;
+    float: left;
+}
+.outer .inner img{
+    height: 100%;
+    width: 100%;
+}
+.outer .tip{
+    position: absolute;
+    right: 40px;
+    bottom: 30px;
+    z-index: 999;
+    overflow: hidden;
+}
+.outer .tip li{
+    height: 18px;
+    width: 18px;
+    margin-left: 7px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
+    float: left;
+}
+.outer .tip li.bg{
+    background: yellow;
+}
+.outer .rlBtn{
+    position: absolute;
+    margin-left: 200px;
+    height: 460px;
+    width:1030px
+}
+.outer .rlBtn a{
+    position: absolute;
+    top: 50%;
+    margin-top: -35px;
+    height: 70px;
+    width: 40px;
+    background: url("../img/rl.png") no-repeat;
+    opacity: 0.3;
+}
+.outer .rlBtn a:hover{
+    opacity: 1;
+}
+.outer .rlBtn a.leftBtn{
+left: 0;
+}
+.outer a.rightBtn{
+    right: 0;
+    background-position: -50px 0;
+}
+.list{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 460px;
+    width: 200px;
+    background: rgba(0, 0, 0, 0.6);
+}
+.list .ul1{
+position: relative;
+}
+.list .ul1 li{
+    height: 51px;
+    text-align: center;
+    line-height: 51px;
+    width: 200px;
+}
+.list .ul1 li a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    color: white;
+}
+.list .ul1 li a.bg{
+    background: orange;
+}
+/*.list .ul1 li a:hover{*/
+    /*background: orange;*/
+/*}*/
+.list .ul1 div{
+    position: absolute;
+    left: 200px;
+    top: 0;
+    height: 458px;
+    background: white;
+    border: 1px solid #dddddd;
+    display: none;
+}
+.list .ul1 div img{
+    height: 458px;
+}
+

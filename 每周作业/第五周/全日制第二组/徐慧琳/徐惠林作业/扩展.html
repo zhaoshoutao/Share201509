@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body, div {
+            margin: 1px 0 0 0;
+            padding: 0;
+        }
+
+        #box,#box1,#box2 {
+            position: relative;
+            width: 100px;
+            height: 30px;
+            background: #008000;
+        }
+
+        #mark,#mark1,#mark2{
+            display: none;
+            position: absolute;
+            left:100px;
+            top:0;
+            width: 300px;
+            height: 100px;
+            background: #08BECE;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="mark"></div>
+</div>
+<div id="box1">
+    <div id="mark1"></div>
+</div>
+<div id="box2">
+    <div id="mark2"></div>
+</div>
+<script type="text/javascript">
+    var box = document.getElementById("box"),box1 = document.getElementById("box1"),box2 = document.getElementById("box2");
+    var mark = document.getElementById("mark"),mark1 = document.getElementById("mark1"),mark2 = document.getElementById("mark2");
+
+
+    box.onmouseenter = function () {
+        mark.style.display = "block";
+    };
+    box1.onmouseenter = function () {
+        mark1.style.display = "block";
+    };
+    box2.onmouseenter = function () {
+        mark2.style.display = "block";
+    };
+    box.onmouseleave = function () {
+        mark.style.display = "none";
+    };
+    box1.onmouseleave = function () {
+        mark1.style.display = "none";
+    };
+    box2.onmouseleave = function () {
+        mark2.style.display = "none";
+    };
+</script>
+</body>
+</html>

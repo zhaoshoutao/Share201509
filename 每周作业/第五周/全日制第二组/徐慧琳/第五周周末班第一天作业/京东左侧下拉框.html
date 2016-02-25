@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body, div {
+            margin: 1px 0 0 0;
+            padding: 0;
+        }
+
+        #box,#box1,#box2 {
+            position: relative;
+            width: 200px;
+            height:100px;
+            background: #008000;
+        }
+        #box:hover,#box1:hover,#box2:hover{
+            background-color: lightgreen;
+        }
+        #box a.title,#box1 .title,#box2 .title{
+            color:white;
+            text-decoration: none;
+            line-height: 70px;
+        }
+        #box a span,#box1 a span,#box2 a span{
+            float: right;
+        }
+        #mark,#mark1,#mark2{
+            display: none;
+            position: fixed;
+            left:200px;
+            top:0;
+            width: 500px;
+            height: 500px;
+            line-height: 300px;
+            text-align: center;
+            background: #08BECE;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <a href="##" class="title">Because of you <span> > </span></a>
+    <div id="mark">crystalya</div>
+</div>
+<div id="box1">
+    <a href="##" class="title">never say never <span> > </span></a>
+    <div id="mark1">justTinBaber</div>
+</div>
+<div id="box2">
+    <a href="##" class="title">yesterday<span> > </span></a>
+    <div id="mark2">yesterday</div>
+</div>
+<script type="text/javascript">
+    var box = document.getElementById("box"),box1 = document.getElementById("box1"),box2 = document.getElementById("box2");
+    var mark = document.getElementById("mark"),mark1 = document.getElementById("mark1"),mark2 = document.getElementById("mark2");
+
+
+    box.onmouseenter = function () {
+        mark.style.display = "block";
+    };
+    box1.onmouseenter = function () {
+        mark1.style.display = "block";
+    };
+    box2.onmouseenter = function () {
+        mark2.style.display = "block";
+    };
+    box.onmouseleave = function () {
+        mark.style.display = "none";
+    };
+    box1.onmouseleave = function () {
+        mark1.style.display = "none";
+    };
+    box2.onmouseleave = function () {
+        mark2.style.display = "none";
+    };
+</script>
+</body>
+</html>

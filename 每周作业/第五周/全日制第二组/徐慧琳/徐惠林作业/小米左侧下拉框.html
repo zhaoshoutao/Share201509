@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        a {
+            display: block;
+            text-underline: none;
+            color: #000;
+        }
+
+        a:hover, a:active, a:target {
+            text-underline: none;
+            color: #000;
+        }
+
+        #context {
+            width: 1236px;
+            height: 461px;
+            margin: 150px auto;
+            border: 1px solid black;
+        }
+
+        #left_con {
+            width: 234px;
+            height: 461px;
+            border: 1px solid black;
+            background: #465f66;
+            position: absolute;
+            z-index: 4;
+
+        }
+
+        #left_con #left_conRow {
+            width: 234px;
+            height: 420px;
+            margin: 20px 0;
+        }
+
+        #left_con #left_conRow ul li {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 20px;
+            color: white;
+        }
+
+        #left_con #left_conRow ul li span {
+            float: right;
+        }
+
+        #left_con #left_conRow ul li:hover {
+            background: orange;
+        }
+        #left_con #left_conRow ul li:hover img{
+          display: block;
+         }
+        #left_con #left_conRow ul li img {
+           display: none;
+            margin: 0 0  0 217px;
+            position: fixed;
+            top: 151px;
+        }
+
+
+        .banner {
+            position:absolute;
+            width: 1236px;
+            height: 461px;
+            overflow: hidden;
+            opacity: 0.5;
+        }
+
+        .banner .inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 12360px;
+            height: 461px;
+            overflow: hidden;
+        }
+
+        .banner .inner img {
+            width: 1236px;
+            height: 461px;
+        }
+
+
+        .banner .tip {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            overflow: hidden;
+        }
+
+        .banner .tip li {
+            margin-left: 10px;
+            width: 18px;
+            height: 18px;
+            background: #7cc4e7;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .banner .tip li.bg {
+            background: #ff0000;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+<div id="context">
+
+    <div class="banner">
+        <div id="left_con">
+            <div id="left_conRow">
+                <ul>
+                    <li id="box">手机 平板 电话卡 <span>></span>
+                        <img src="img/小米1.png" alt=""/>
+                    </li>
+                    <li id="box1">电视 盒子 <span>></span>
+                        <img src="img/小米2.png" alt=""/>
+                    </li>
+                    <li id="box2">路由器 智能硬件<span>></span>
+                        <img src="img/小米3.png" alt=""/>
+                    </li>
+                    <li id="box3">移动电源 插线板<span>></span>
+                        <img src="img/小米4.png" alt=""/>
+                    </li>
+                    <li id="box4">耳机 音响<span>></span>
+                        <img src="img/小米1.png" alt=""/>
+                    </li>
+                    <li id="box5">电池 存储卡<span>></span>
+                        <img src="img/小米2.png" alt=""/>
+                    </li>
+                    <li id="box6">保护套 后盖<span>></span>
+                        <img src="img/小米3.png" alt=""/>
+                    </li>
+                    <li id="box7">贴膜 其他配件<span>></span>
+                        <img src="img/小米4.png" alt=""/>
+                    </li>
+                    <li id="box8">米兔 服装<span>></span>
+                        <img src="img/小米1.png" alt=""/>
+                    </li>
+                    <li id="box9">箱包 其他周边<span>></span>
+                        <img src="img/小米2.png" alt=""/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="inner" id="inner">
+            <img src="img/T1bYAvBjJv1RXrhCrK.jpg"/>
+            <img src="img/T1HNJgBKWv1RXrhCrK.jpg"/>
+            <img src="img/T1lVh_ByJv1RXrhCrK.jpg"/>
+            <img src="img/T1Ngx_B7xv1RXrhCrK.jpg"/>
+            <img src="img/T1PuL_Bjhv1RXrhCrK.jpg"/>
+            <img src="img/T1bYAvBjJv1RXrhCrK.jpg"/>
+        </div>
+        <ul class="tip" id="tip">
+            <li class="bg"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <a href="javascript:;" class="btnLeft" id="btnLeft"></a>
+        <a href="javascript:;" class="btnRight" id="btnRight"></a>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="animate-只有匀速运动版.js"></script>
+<script type="text/javascript">
+    (function () {
+        var step = 0, autoTimer = null, interval = 2000;
+        var banner = document.getElementById("banner"), inner = document.getElementById("inner"), tip = document.getElementById("tip"), tipList = tip.getElementsByTagName("li"), btnLeft = document.getElementById("btnLeft"), btnRight = document.getElementById("btnRight");
+
+        //->实现焦点对齐
+        function changeTip() {
+            var tempStep = step;
+            tempStep >= tipList.length ? tempStep = 0 : null;
+            for (var i = 0; i < tipList.length; i++) {
+                tipList[i].className = i === tempStep ? "bg" : null;
+            }
+        }
+
+        //->实现自动轮播图
+        autoTimer = window.setInterval(autoMove, interval);
+        function autoMove() {
+            step++;
+            if (step > 5) {
+                step = 1;
+                inner.style.left = 0;
+            }
+            zhufengAnimate(inner, {left: -step * 1236}, 500);
+            changeTip();
+        }
+
+        //->鼠标进入轮播图区域停止自动轮播,鼠标离开自动轮播开启
+        banner.onmouseenter = function () {
+            window.clearInterval(autoTimer);
+            btnLeft.style.display = btnRight.style.display = "block";
+        };
+
+        banner.onmouseleave = function () {
+            autoTimer = window.setInterval(autoMove, interval);
+            btnLeft.style.display = btnRight.style.display = "none";
+        };
+
+
+        //->实现焦点轮播
+        /*tipMove();
+        function tipMove() {
+            for (var i = 0; i < tipList.length; i++) {
+                var cur = tipList[i];
+                cur.index = i;
+                cur.onclick = function () {
+                    step = this.index;
+                    zhufengAnimate(inner, {left: -step * 1236}, 500, 3);
+                    changeTip();
+                }
+            }
+        }
+*/
+        //->实现左右切换
+        btnLeft.onclick = function () {
+            step--;
+            if (step < 0) {
+                step = 5;
+                inner.style.left = -12360 + "px";
+            }
+            zhufengAnimate(inner, {left: -step * 1236}, 500, 4);
+            changeTip();
+        };
+
+        btnRight.onclick = autoMove;
+    })();
+
+
+</script>

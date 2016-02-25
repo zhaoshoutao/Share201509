@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body, div {
+            margin: 0;
+            padding: 0;
+            height: 75px;
+        }
+
+        #changePosition {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        #box, #box1, #box2, #box3 {
+            position: relative;
+            width: 100px;
+            height: 75px;
+            display: inline;
+        }
+
+        #mark, #mark1, #mark2, #mark3 {
+            display: none;
+            position: absolute;
+            left: 100px;
+            top: 15px;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<div id="changePosition">
+    <div id="box">
+        <img src="img/apple_1.jpg"/>
+
+        <div id="mark">
+            <img src="img/apple_1_bigger.jpg"/>
+        </div>
+    </div>
+    <div id="box1">
+        <img src="img/apple_2.jpg"/>
+
+        <div id="mark1">
+            <img src="img/apple_2_bigger.jpg"/>
+        </div>
+    </div>
+    <div id="box2">
+        <img src="img/apple_3.jpg"/>
+
+        <div id="mark2">
+            <img src="img/apple_3_bigger.jpg"/>
+        </div>
+
+    </div>
+    <div id="box3">
+        <img src="img/apple_4.jpg"/>
+
+        <div id="mark3">
+            <img src="img/apple_4_bigger.jpg"/>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+    var box = document.getElementById("box"), box1 = document.getElementById("box1"), box2 = document.getElementById("box2"), box3 = document.getElementById("box3");
+    var mark = document.getElementById("mark"), mark1 = document.getElementById("mark1"), mark2 = document.getElementById("mark2"), mark3 = document.getElementById("mark3");
+
+
+    box.onmouseenter = function () {
+        mark.style.display = "block";
+    };
+    box1.onmouseenter = function () {
+        mark1.style.display = "block";
+    };
+    box2.onmouseenter = function () {
+        mark2.style.display = "block";
+    };
+    box3.onmouseenter = function () {
+        mark3.style.display = "block";
+    };
+
+
+    box.onmouseleave = function () {
+        mark.style.display = "none";
+    };
+    box1.onmouseleave = function () {
+        mark1.style.display = "none";
+    };
+    box2.onmouseleave = function () {
+        mark2.style.display = "none";
+    };
+    box3.onmouseleave = function () {
+        mark3.style.display = "none";
+    };
+
+</script>
+</body>
+</html>

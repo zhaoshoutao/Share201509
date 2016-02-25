@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body, div, h2 {
+            margin: 0;
+            padding: 0;
+            font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var str = false;
+        var strX=null;
+        var strY=null;
+        $("#box").mousedown(function(e) {
+            str = true;
+            strX = e.clientX - this.offsetLeft;
+            strY = e.clientY - this.offsetTop;
+            this.setCapture && this.setCapture();
+            return false;
+        });
+        document.onmousemove = function(e) {
+            if (str) {
+                var e = e || window.event;
+                var strL = e.clientX - strX;
+                var strT = e.clientY - strY;
+                $("#box").css({"left":strL + "px", "top":strT + "px"});
+                return false;
+            }
+        };
+        $(document).mouseup(function(e) {
+            str = false;
+            $("#box")[0].releaseCapture();
+            e.cancelBubble = true;
+        })
+
+    })
+</script>
+</body>
+</html>
